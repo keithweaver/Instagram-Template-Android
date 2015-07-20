@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -62,11 +63,14 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
         holder.textAbout.setText(post.getAbout());
         holder.textLikes.setText(post.getLikes());
 
+        //final UserHolder finalHolder = holder;
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.i("BTN1 WAS CLICKED:", ""+position);
                 //Toast.makeText(context, "Btn1 Clicked", Toast.LENGTH_SHORT).show();
-
+                //finalHolder.likeBtn.setImageDrawable(R.drawable.abc_btn_check_to_on_mtrl_015);
+                Toast.makeText(context, "Liked", Toast.LENGTH_SHORT).show();
+                //send liked action
             }
         });
 

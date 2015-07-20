@@ -9,6 +9,7 @@ import android.util.Log;
 import com.weaverprojects.insta.db.LoadExternalImgsServerActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +30,7 @@ public class InstaTestSplashActivity extends Activity {
         mContext = this.getApplicationContext();
 
         InstaTestMainActivity.mainList = new ArrayList<UserPost>();
+        InstaTestMainActivity.likesMap = new HashMap<Integer, String>();
         new LoadExternalImgsServerActivity(mContext).execute("http://www.keithweaver.ca/icons/github.png");
 
         final Timer mTimer = new Timer();

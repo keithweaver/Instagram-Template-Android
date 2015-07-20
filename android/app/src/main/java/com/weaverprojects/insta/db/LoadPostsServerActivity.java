@@ -71,16 +71,20 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
             Toast.makeText(context, "Unable to load posts.", Toast.LENGTH_SHORT).show();
         } else {
             ArrayList<String> serverElements = split(result);
-            //1st element is title
-            //2nd element is about
-            //3rd element is link
-            //4th element is likes
+            //1st element is post code
+            //2nd element is title
+            //3rd element is about
+            //4th element is link
+            //5th element is likes
+            String postCode = "";
             String title = "";
             String about = "";
             String link = "";
             String likes = "";
-            for(int i =0;i < serverElements.size();i++){
-                if(title.length() == 0){
+            for(int i =0;i < serverElements.size();i++) {
+                if(postCode.length() == 0){
+                    postCode = serverElements.get(i);
+                }else if(postCode.length() > 0 && title.length() == 0){
                     title = serverElements.get(i);
                 }else if(title.length() > 0 && about.length() == 0){
                     about = serverElements.get(i);
@@ -91,8 +95,10 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
 
                 }else if(title.length() > 0 && about.length() > 0 && link.length() > 0 && likes.length() == 0){
 
-                    InstaTestMainActivity.mainList.add(new UserPost(title, about, null, likes));
+                    InstaTestMainActivity.mainList.add(new UserPost(postCode,title, about, null, likes));
+                    InstaTestMainActivity.likesMap.put(InstaTestMainActivity.likesMap.size(), postCode);
 
+                    postCode = "";
                     title = "";
                     about = "";
                     link = "";

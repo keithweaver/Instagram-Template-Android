@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class InstaTestMainActivity extends Activity {
@@ -23,6 +24,7 @@ public class InstaTestMainActivity extends Activity {
     ImageAdapter mainAdapter;
     public static ArrayList<UserPost> mainList;
     ListView mainListview;
+    public static HashMap<Integer, String> likesMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

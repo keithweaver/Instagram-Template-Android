@@ -6,13 +6,15 @@ import android.graphics.Bitmap;
  * Created by kweaver on 20/07/15.
  */
 public class UserPost {
+    String postCode;
     String title;
     String about;
     Bitmap img;
     String likes;
 
-    public UserPost(String title, String about, Bitmap img, String likes){
+    public UserPost(String postCode, String title, String about, Bitmap img, String likes){
         super();
+        this.postCode = postCode;
         this.title = title;
         this.about = about;
         this.img = img;
