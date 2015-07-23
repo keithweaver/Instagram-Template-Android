@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.weaverprojects.insta.db.LoadExternalImgsServerActivity;
+import com.weaverprojects.insta.db.LoadPostsServerActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,9 @@ public class InstaTestSplashActivity extends Activity {
 
         InstaTestMainActivity.mainList = new ArrayList<UserPost>();
         InstaTestMainActivity.likesMap = new HashMap<Integer, String>();
-        new LoadExternalImgsServerActivity(mContext).execute("http://www.keithweaver.ca/icons/github.png");
+        //new LoadExternalImgsServerActivity(mContext).execute("http://www.keithweaver.ca/icons/github.png");
+        new LoadPostsServerActivity(mContext).execute("kweaver0");
+
 
         final Timer mTimer = new Timer();
         mTimer.schedule(new TimerTask() {

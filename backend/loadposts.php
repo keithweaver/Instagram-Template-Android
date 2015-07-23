@@ -1,5 +1,5 @@
 <?php
-	include_once('');
+	include_once('./include/conn.php');
 	$username = $_POST['username'];
 	$code = $_POST['pass'];
 	if($code == "SOME_HIDDEN_CODE"){
@@ -12,9 +12,9 @@
 				if(mysqli_num_rows($result_friends)==1){
 					//yes friends
 					if($s == ""){
-						$s .= $row['postCode'] . "|" . $row['title'] . "|" . $row['about'] . "|" . $row['link'] . "|" . $row['likes'];
+						$s .= $row['postCode'] . "|" . $row['title'] . "|" . $row['user'] . "|" . $row['link'] . "|" . $row['likes'];
 					}else{
-						$s .= "|" . $row['postCode'] . "|" . $row['title'] . "|" . $row['about'] . "|" . $row['link'] . "|" . $row['likes'];
+						$s .= "|" . $row['postCode'] . "|" . $row['title'] . "|" . $row['user'] . "|" . $row['link'] . "|" . $row['likes'];
 					}
 				}
 			}	

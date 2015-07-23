@@ -73,12 +73,12 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
             ArrayList<String> serverElements = split(result);
             //1st element is post code
             //2nd element is title
-            //3rd element is about
+            //3rd element is username
             //4th element is link
             //5th element is likes
             String postCode = "";
             String title = "";
-            String about = "";
+            String username = "";
             String link = "";
             String likes = "";
             for(int i =0;i < serverElements.size();i++) {
@@ -86,21 +86,23 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
                     postCode = serverElements.get(i);
                 }else if(postCode.length() > 0 && title.length() == 0){
                     title = serverElements.get(i);
-                }else if(title.length() > 0 && about.length() == 0){
-                    about = serverElements.get(i);
-                }else if(title.length() > 0 && about.length() > 0 && link.length() == 0){
+                }else if(title.length() > 0 && username.length() == 0){
+                    username = serverElements.get(i);
+                }else if(title.length() > 0 && username.length() > 0 && link.length() == 0){
                     link = serverElements.get(i);
                     //call the server  call
                     //with size
 
-                }else if(title.length() > 0 && about.length() > 0 && link.length() > 0 && likes.length() == 0){
+                }else if(title.length() > 0 && username.length() > 0 && link.length() > 0 && likes.length() == 0){
 
-                    InstaTestMainActivity.mainList.add(new UserPost(postCode,title, about, null, likes));
+                    InstaTestMainActivity.mainList.add(new UserPost(postCode,title, username, null, likes));
                     InstaTestMainActivity.likesMap.put(InstaTestMainActivity.likesMap.size(), postCode);
+
+                    new LoadExternalImgsServerActivity(context).execute(link);
 
                     postCode = "";
                     title = "";
-                    about = "";
+                    username = "";
                     link = "";
                     likes = "";
                 }

@@ -8,23 +8,23 @@ import android.graphics.Bitmap;
 public class UserPost {
     String postCode;
     String title;
-    String about;
+    String username;
     Bitmap img;
     String likes;
 
-    public UserPost(String postCode, String title, String about, Bitmap img, String likes){
+    public UserPost(String postCode, String title, String username, Bitmap img, String likes){
         super();
         this.postCode = postCode;
         this.title = title;
-        this.about = about;
+        this.username = username;
         this.img = img;
         this.likes = likes;
     }
     public String getTitle(){
         return title;
     }
-    public String getAbout(){
-        return about;
+    public String getUsername(){
+        return username;
     }
     public Bitmap getImg(){
         return img;
@@ -35,8 +35,8 @@ public class UserPost {
     public void setTitle(String s){
         this.title = s;
     }
-    public void setAbout(String s){
-        this.about = s;
+    public void setUsername(String s){
+        this.username = s;
     }
     public void setImg(Bitmap i){
         this.img = i;

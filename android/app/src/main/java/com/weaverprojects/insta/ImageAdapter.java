@@ -43,7 +43,8 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
 
             holder.img = (ImageView) row.findViewById(R.id.img);
             holder.textTitle = (TextView) row.findViewById(R.id.textTitle);
-            holder.textAbout = (TextView) row.findViewById(R.id.textAbout);
+            holder.usernameText = (TextView) row.findViewById(R.id.usernameText);
+            holder.usernameText2 = (TextView) row.findViewById(R.id.usernameText2);
             holder.textLikes = (TextView) row.findViewById(R.id.textLikes);
 
             holder.likeBtn = (ImageView) row.findViewById(R.id.likeBtn);
@@ -60,7 +61,8 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
         }
         holder.img.setImageBitmap(temp);
         holder.textTitle.setText(post.getTitle());
-        holder.textAbout.setText(post.getAbout());
+        holder.usernameText.setText(post.getUsername());
+        holder.usernameText2.setText(post.getUsername());
         holder.textLikes.setText(post.getLikes());
 
         //final UserHolder finalHolder = holder;
@@ -81,7 +83,9 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
     static class UserHolder{
         ImageView img;
         TextView textTitle;
-        TextView textAbout;
+        TextView usernameText;
+        TextView usernameText2;
+        ImageView profileImg;
         TextView textLikes;
         ImageView likeBtn;
     }
