@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="#ffffffff">
 
     <TableRow
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
         <GridLayout
@@ -13,8 +13,8 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:id="@+id/profileImg"
                 android:layout_column="0" />
 
@@ -27,15 +27,16 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill_horizontal"
-                android:paddingTop="5dp"
+                android:paddingTop="15dp"
                 android:paddingRight="10dp"
                 android:paddingLeft="10dp"
-                android:textColor="#ff0564af" />
+                android:textColor="#ff0564af"
+                android:paddingBottom="5dp" />
         </GridLayout>
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -43,12 +44,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/img"
             android:layout_gravity="center_horizontal"
-            android:scaleType="center" />
+            android:scaleType="centerCrop" />
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -79,7 +81,7 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
         <GridLayout
@@ -108,8 +110,9 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <GridLayout
             android:layout_width="match_parent"

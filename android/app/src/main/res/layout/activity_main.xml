@@ -10,9 +10,10 @@
         android:layout_weight="1">
 
         <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/mainListview" />
+            android:id="@+id/mainListview"
+            android:layout_marginBottom="50dp" />
     </LinearLayout>
 
     <TableRow

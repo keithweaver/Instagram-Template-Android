@@ -11,11 +11,11 @@
 				$result_friends = mysqli_query($con, "SELECT * FROM friends WHERE (user1='$username' AND user2='$postUser') OR (user1='$postUser' AND user2='$username')") or die("Failed 004");
 				if(mysqli_num_rows($result_friends)==1){
 					//yes friends
-					if($s == ""){
-						$s .= $row['postCode'] . "|" . $row['title'] . "|" . $row['user'] . "|" . $row['link'] . "|" . $row['likes'];
-					}else{
-						$s .= "|" . $row['postCode'] . "|" . $row['title'] . "|" . $row['user'] . "|" . $row['link'] . "|" . $row['likes'];
+					if($s != ""){
+						$s .= "|";
 					}
+					$s .= $row['postCode'] . "|" . $row['title'] . "|" . $row['user'] . "|" . $row['link'] . "|" . $row['likes'] . "|" . $row['profileImg'];
+					
 				}
 			}	
 			echo $s;

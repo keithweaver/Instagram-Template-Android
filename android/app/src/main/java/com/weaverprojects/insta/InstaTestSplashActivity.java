@@ -20,9 +20,10 @@ public class InstaTestSplashActivity extends Activity {
     public static String TAG = "WEAVER_SplashActivity_";
     Context mContext;
 
-    public static boolean imagesLoaded = false;
+    public static int imagesLoaded = 0;
+    public static int profileImagesLoaded = 0;
     public static boolean imagesLoadedError = false;
-
+    public static boolean loadPostsAsyncTastIsComplete = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,10 @@ public class InstaTestSplashActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (imagesLoaded && nullImageElements()) {
+                            Log.v(TAG, "Timer ImagesLoaded:" + imagesLoaded);
+                            if (profileImagesLoaded == InstaTestMainActivity.mainList.size() &&
+                                    imagesLoaded == InstaTestMainActivity.mainList.size() &&
+                                    nullImageElements() && loadPostsAsyncTastIsComplete) {
                                 mTimer.cancel();
                                 startActivity(new Intent("android.intent.action.InstaTestMainActivity"));
                             }else if(imagesLoadedError){

@@ -3,6 +3,7 @@ package com.weaverprojects.insta;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
             holder.usernameText = (TextView) row.findViewById(R.id.usernameText);
             holder.usernameText2 = (TextView) row.findViewById(R.id.usernameText2);
             holder.textLikes = (TextView) row.findViewById(R.id.textLikes);
+            holder.profileImg = (ImageView) row.findViewById(R.id.profileImg);
 
             holder.likeBtn = (ImageView) row.findViewById(R.id.likeBtn);
 
@@ -64,6 +66,11 @@ public class ImageAdapter extends ArrayAdapter<UserPost> {
         holder.usernameText.setText(post.getUsername());
         holder.usernameText2.setText(post.getUsername());
         holder.textLikes.setText(post.getLikes());
+        Bitmap temp2 = post.getProfileImg();
+        if(temp2 == null){
+            Log.v(TAG, "Profile bitmap is null....");
+        }
+        holder.profileImg.setImageBitmap(post.getProfileImg());
 
         //final UserHolder finalHolder = holder;
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {

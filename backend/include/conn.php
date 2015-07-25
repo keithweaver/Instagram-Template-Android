@@ -1,3 +1,3 @@
 <?php
-	$con = mysqli_connect("localhost","android_usr","Cheese54","androidDB")or die("Failed 001");
+	$con = mysqli_connect("localhost","github_usr","GithubPassword","instagramGithubDB")or die("Failed 001");
 ?>

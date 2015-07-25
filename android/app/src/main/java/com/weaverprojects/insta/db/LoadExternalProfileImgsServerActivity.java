@@ -15,20 +15,21 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * Created by kweaver on 20/07/15.
+ * Created by Keith on 2015-07-25.
  */
-public class LoadExternalImgsServerActivity extends AsyncTask<String, String, Bitmap> {
-    public static String TAG = "WEAVER_LoadExternalImgsServerActivity_";
+public class LoadExternalProfileImgsServerActivity  extends AsyncTask<String, String, Bitmap> {
+    public static String TAG = "WEAVER_LoadExternalProfileImgsServerActivity_";
 
     Context mContext;
     Bitmap bitmap;
 
     int position;
 
-    public LoadExternalImgsServerActivity(Context c) {
+    public LoadExternalProfileImgsServerActivity(Context c) {
         super.onPreExecute();
         mContext = c;
     }
+
     protected Bitmap doInBackground(String... args) {
         String link = args[0];
         Log.v(TAG, "Link:[" + link + "]");
@@ -45,27 +46,27 @@ public class LoadExternalImgsServerActivity extends AsyncTask<String, String, Bi
 
     protected void onPostExecute(Bitmap image) {
 
-        if(image != null){
+        if (image != null) {
             //UserPost newPost = new UserPost("Title","about",image,"123");
             //if(newPost.getImg()==null){
             //    Log.v(TAG, "Bitmap is null");
             //}
             //InstaTestMainActivity.mainList.add(newPost);
-            try{
+            try {
                 UserPost currentPost = InstaTestMainActivity.mainList.get(position);
-                if(currentPost.getImg() != null){
+                if (currentPost.getProfileImg() != null) {
                     Log.e(TAG, "two of the same images.");
-                }else{
-                    currentPost.setImg(image);
+                } else {
+                    currentPost.setProfileImg(image);
                     InstaTestMainActivity.mainList.set(position, currentPost);
-                    InstaTestSplashActivity.imagesLoaded++;
+                    InstaTestSplashActivity.profileImagesLoaded++;
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 Log.e(TAG, "Error setting image");
                 Log.e(TAG, e.toString());
             }
-            Toast.makeText(mContext, "Loaded", Toast.LENGTH_SHORT).show();
-        }else{
+            //Toast.makeText(mContext, "Loaded", Toast.LENGTH_SHORT).show();
+        } else {
 
             //pDialog.dismiss();
             Toast.makeText(mContext, "Image Does Not exist or Network Error", Toast.LENGTH_SHORT).show();

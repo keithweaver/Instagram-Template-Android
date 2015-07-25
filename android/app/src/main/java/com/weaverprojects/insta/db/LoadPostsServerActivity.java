@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.weaverprojects.insta.InstaTestMainActivity;
+import com.weaverprojects.insta.InstaTestSplashActivity;
 import com.weaverprojects.insta.UserPost;
 
 import java.io.BufferedReader;
@@ -34,7 +35,7 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
             String username = params[0];
             //String password = params[1];
 
-            String link="http://weaverstartup.com/p/point/login.php";
+            String link="http://weaverprojects.com/instagram/loadposts.php";
             String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
             data += "&" + URLEncoder.encode("pass", "UTF-8") + "=" + URLEncoder.encode("SOME_HIDDEN_CODE", "UTF-8");
 
@@ -81,7 +82,17 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
             String username = "";
             String link = "";
             String likes = "";
+            String profileImgLink = "";
             for(int i =0;i < serverElements.size();i++) {
+                Log.v(TAG, "ITEM:" + serverElements.get(i));
+                /*
+                Likes: 4
+                Link
+                user
+                title
+                postcode
+                 */
+                /*
                 if(postCode.length() == 0){
                     postCode = serverElements.get(i);
                 }else if(postCode.length() > 0 && title.length() == 0){
@@ -94,19 +105,35 @@ public class LoadPostsServerActivity extends AsyncTask<String, Void, String> {
                     //with size
 
                 }else if(title.length() > 0 && username.length() > 0 && link.length() > 0 && likes.length() == 0){
+                */
+                if(profileImgLink.length() == 0) {
+                    profileImgLink = serverElements.get(i);
+                }else if(likes.length() == 0) {
+                    likes = serverElements.get(i);
+                }else if(link.length() == 0) {
+                    link = serverElements.get(i);
+                }else if(username.length() == 0) {
+                    username = serverElements.get(i);
+                }else if(title.length() == 0) {
+                    title = serverElements.get(i);
+                }else if(postCode.length() == 0){
+                    postCode = serverElements.get(i);
 
-                    InstaTestMainActivity.mainList.add(new UserPost(postCode,title, username, null, likes));
+                    InstaTestMainActivity.mainList.add(new UserPost(postCode,title,null, username, null, likes));
                     InstaTestMainActivity.likesMap.put(InstaTestMainActivity.likesMap.size(), postCode);
 
-                    new LoadExternalImgsServerActivity(context).execute(link);
-
+                    String posStr = String.valueOf(InstaTestMainActivity.mainList.size() - 1);
+                    new LoadExternalImgsServerActivity(context).execute(link, posStr);
+                    new LoadExternalProfileImgsServerActivity(context).execute(profileImgLink, posStr);
                     postCode = "";
                     title = "";
                     username = "";
                     link = "";
                     likes = "";
+                    profileImgLink = "";
                 }
             }
+            InstaTestSplashActivity.loadPostsAsyncTastIsComplete = true;
         }
     }
     protected ArrayList<String> split(String s){
