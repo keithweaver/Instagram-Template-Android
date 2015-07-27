@@ -1,0 +1,11 @@
+posts
+- user
+- postCode
+- title
+- link
+- likes
+- date_tab
+
+friends
+- user1
+- user2
