@@ -19,4 +19,7 @@ public class FollowingAction {
 
     int timeWhenActionHappened;
 
+
+
+
 }
