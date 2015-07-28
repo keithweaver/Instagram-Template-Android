@@ -1,5 +1,11 @@
 package com.expeditionlabs.openinstagram.Windows.main;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Window;
+
+import com.expeditionlabs.openinstagram.R;
+
 /**
  * Created by kweaver on 27/07/15.
  */
