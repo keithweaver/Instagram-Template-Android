@@ -2,10 +2,13 @@ package com.expeditionlabs.openinstagram.Windows.main;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
+import android.widget.TableRow;
 
 import com.expeditionlabs.openinstagram.CustomAdapters.PostAdapter;
 import com.expeditionlabs.openinstagram.CustomElements.Post;
@@ -68,6 +71,22 @@ public class OpenInstagramHomeActivity extends Activity {
             }
         }, 0, 2000);
 
+
+
+
+
+        /*
+        ----------- BOTTOM MENU --------
+         */
+        TableRow exploreBtn = (TableRow) findViewById(R.id.exploreBtn);
+        exploreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openExploreWindow = new Intent(v.getContext(),
+                        OpenInstagramExploreActivity.class);
+                startActivity(openExploreWindow);
+            }
+        });
     }
     protected void onPause(){
         super.onPause();
