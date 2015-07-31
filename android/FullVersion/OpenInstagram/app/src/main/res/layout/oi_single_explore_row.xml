@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView11"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:src="@drawable/ic_launcher"
+            android:layout_weight="1"
+            android:layout_columnWeight="1"
+            android:layout_column="0"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView12"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:src="@drawable/ic_launcher"
+            android:layout_weight="1"
+            android:layout_columnWeight="1"
+            android:layout_column="1"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView13"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:src="@drawable/ic_launcher"
+            android:layout_weight="1"
+            android:layout_columnWeight="1"
+            android:layout_column="2"
+            android:scaleType="centerCrop" />
+    </GridLayout>
 
 </LinearLayout>
