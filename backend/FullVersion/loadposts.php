@@ -1,4 +1,6 @@
 <?php
+
+	
 	include_once('./include/conn.php');
 	$username = $_POST['username'];
 	$code = $_POST['pass'];
