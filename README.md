@@ -11,4 +11,4 @@ Look of Prototype:
 
 ![alt text](https://raw.githubusercontent.com/kweaver00/Instagram-Template-Android/master/screenshots/screenshots.png "Instagram Screenshot")
 
-![alt text](http://keithweaver.ca/imgs/Projects/instagram.jpg, "Instagram Screenshot")
+![alt text](http://keithweaver.ca/imgs/Projects/instagram.jpg "Instagram Screenshot")
