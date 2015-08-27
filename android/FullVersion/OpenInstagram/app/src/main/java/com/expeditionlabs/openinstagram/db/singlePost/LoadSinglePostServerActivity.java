@@ -1,12 +1,11 @@
-package com.expeditionlabs.openinstagram.db.home;
+package com.expeditionlabs.openinstagram.db.singlePost;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramSinglePostActivity;
 import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
-import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramHomeActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -17,26 +16,26 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 /**
- * Created by kweaver on 28/07/15.
+ * Created by Weaver on 15-08-26.
  */
-public class LoadTenPostsFromServerActivity extends AsyncTask<String, Void, String> {
-    public static String TAG = "OpenInstagram_LoadTenPostsFromServerActivity_";
-
+public class LoadSinglePostServerActivity extends AsyncTask<String, Void, String> {
+    public static final String TAG = "OpenInstagram_LoadSinglePostServerActivity_";
     private Context context;
 
-    public LoadTenPostsFromServerActivity (Context c){
+    public LoadSinglePostServerActivity(Context c){
         this.context = c;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        try {
-            String username = params[0];
-            //String password = params[1];
+        try{
+            String postCode = params[0];
 
-            String link="http://weaverprojects.com/instagram/loadposts.php";
-            String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
-            data += "&" + URLEncoder.encode("pass", "UTF-8") + "=" + URLEncoder.encode("SOME_HIDDEN_CODE", "UTF-8");
+            String link = "http://weaverprojects.com/instagram/loadsinglepost.php";
+            String data = URLEncoder.encode("pass","UTF-8") + "=" +
+                    URLEncoder.encode("SOME_HIDDEN_CODE","UTF-8");
+            data += "&";
+            data += URLEncoder.encode("code","UTF-8") + "=" + URLEncoder.encode(postCode, "UTF-8");
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
@@ -44,38 +43,32 @@ public class LoadTenPostsFromServerActivity extends AsyncTask<String, Void, Stri
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 
-            wr.write( data );
+            wr.write(data);
             wr.flush();
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
             StringBuilder sb = new StringBuilder();
             String line = null;
-
-            // Read Server Response
-            while((line = reader.readLine()) != null)
-            {
-                //Log.e("LINE:", line);//Dev
+            while((line = reader.readLine()) != null){
                 sb.append(line);
                 break;
             }
             return sb.toString();
         }catch(Exception e){
-            return "Failed InApp 001";
+            Log.e(TAG, "Error: on in app");
+            Log.e(TAG, e.toString());
+            return "Failed In App";
         }
     }
     @Override
-    protected void onPostExecute(String result) {
-        Log.v(TAG, "OnPostExecute  Result:[" + result + "]");
-        if (result.contains("Failed")) {
-            Toast.makeText(context, "Unable to load posts.", Toast.LENGTH_SHORT).show();
-        } else {
+    protected void onPostExecute(String result){
+        Log.v(TAG, "Result:[" + result + "]");
+        if(result.contains("Failed")){
+
+        }else{
             ArrayList<String> serverElements = split(result);
-            //1st element is post code
-            //2nd element is title
-            //3rd element is username
-            //4th element is link
-            //5th element is likes
+
             String postCode = "";
             String title = "";
             String username = "";
@@ -84,26 +77,7 @@ public class LoadTenPostsFromServerActivity extends AsyncTask<String, Void, Stri
             String profileImgLink = "";
             for(int i =0;i < serverElements.size();i++) {
                 Log.v(TAG, "ITEM:" + serverElements.get(i));
-                /*
-                Likes: 4
-                Link
-                user
-                title
-                postcode
-                 */
-                /*
-                if(postCode.length() == 0){
-                    postCode = serverElements.get(i);
-                }else if(postCode.length() > 0 && title.length() == 0){
-                    title = serverElements.get(i);
-                }else if(title.length() > 0 && username.length() == 0){
-                    username = serverElements.get(i);
-                }else if(title.length() > 0 && username.length() > 0 && link.length() == 0){
-                    link = serverElements.get(i);
-                    //call the server  call
-                    //with size
-                }else if(title.length() > 0 && username.length() > 0 && link.length() > 0 && likes.length() == 0){
-                */
+
                 if(profileImgLink.length() == 0) {
                     profileImgLink = serverElements.get(i);
                 }else if(likes.length() == 0) {
@@ -117,14 +91,13 @@ public class LoadTenPostsFromServerActivity extends AsyncTask<String, Void, Stri
                 }else if(postCode.length() == 0){
                     postCode = serverElements.get(i);
 
-                    OpenInstagramHomeActivity.listOfPostings.add(new Post(
+                    OpenInstagramSinglePostActivity.singleListOfExplore.add(new Post(
                             postCode, 0, username, null, profileImgLink, null, link,
                             Integer.parseInt(likes), title, null));
-                    //InstaTestMainActivity.likesMap.put(InstaTestMainActivity.likesMap.size(), postCode);
 
-                    String posStr = String.valueOf(OpenInstagramHomeActivity.listOfPostings.size() - 1);
-                    new LoadExternalImgsServerActivity(context).execute(link, posStr);
-                    new LoadExternalProfileImgsServerActivity(context).execute(profileImgLink, posStr);
+                    String posStr = String.valueOf(OpenInstagramSinglePostActivity.singleListOfExplore.size() - 1);
+                    new LoadExternalImgForSinglePostServerActivity(context).execute(link, posStr);
+                    new LoadExternalProfileImgForSinglePostServerActivity(context).execute(profileImgLink, posStr);
                     postCode = "";
                     title = "";
                     username = "";
@@ -133,7 +106,6 @@ public class LoadTenPostsFromServerActivity extends AsyncTask<String, Void, Stri
                     profileImgLink = "";
                 }
             }
-
         }
     }
     protected ArrayList<String> split(String s){

@@ -10,13 +10,13 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.TableRow;
 
-import com.expeditionlabs.openinstagram.CustomAdapters.PostAdapter;
-import com.expeditionlabs.openinstagram.CustomElements.Post;
+import com.expeditionlabs.openinstagram.lib.CustomAdapters.PostAdapter;
+import com.expeditionlabs.openinstagram.lib.CustomElements.ExplorePost;
+import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
 import com.expeditionlabs.openinstagram.R;
 import com.expeditionlabs.openinstagram.db.home.LoadTenPostsFromServerActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,6 +30,7 @@ public class OpenInstagramHomeActivity extends Activity {
     public static String username = "";
 
     public static ArrayList<Post> listOfPostings;
+    public static ArrayList<ExplorePost> listOfExploring;
 
     PostAdapter mPostAdapter;
 

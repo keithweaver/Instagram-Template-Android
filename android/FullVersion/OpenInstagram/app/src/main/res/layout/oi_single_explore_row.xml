@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
+    <!--
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +40,80 @@
             android:layout_columnWeight="1"
             android:layout_column="2"
             android:scaleType="centerCrop" />
-    </GridLayout>
 
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:gravity="center"
+            android:id="@+id/homeBtn">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView"
+                android:src="@drawable/home" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:gravity="center"
+            android:id="@+id/exploreBtn">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView2"
+                android:src="@drawable/magnifyy"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal|center_horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView3"
+                android:src="@drawable/upload"
+                />
+        </TableRow>
+
+    </GridLayout>
+    -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/magnify"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/magnify"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/magnify"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
 </LinearLayout>

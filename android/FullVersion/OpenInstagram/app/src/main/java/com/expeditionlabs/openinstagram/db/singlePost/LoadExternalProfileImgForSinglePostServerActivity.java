@@ -1,4 +1,4 @@
-package com.expeditionlabs.openinstagram.db.home;
+package com.expeditionlabs.openinstagram.db.singlePost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,8 +7,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramSinglePostActivity;
 import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
-import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramHomeActivity;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -16,15 +16,15 @@ import java.net.URL;
 /**
  * Created by Keith on 2015-07-30.
  */
-public class LoadExternalProfileImgsServerActivity extends AsyncTask<String, String, Bitmap> {
-    public static String TAG = "WEAVER_LoadExternalProfileImgsServerActivity_";
+public class LoadExternalProfileImgForSinglePostServerActivity extends AsyncTask<String, String, Bitmap> {
+    public static String TAG = "OpenInstagram_LoadExternalProfileImgForSinglePostServerActivity_";
 
     Context mContext;
     Bitmap bitmap;
 
     int position;
 
-    public LoadExternalProfileImgsServerActivity(Context c) {
+    public LoadExternalProfileImgForSinglePostServerActivity(Context c) {
         super.onPreExecute();
         mContext = c;
     }
@@ -52,12 +52,13 @@ public class LoadExternalProfileImgsServerActivity extends AsyncTask<String, Str
             //}
             //InstaTestMainActivity.mainList.add(newPost);
             try {
-                Post currentPost = OpenInstagramHomeActivity.listOfPostings.get(position);
+                Post currentPost = OpenInstagramSinglePostActivity.singleListOfExplore.get(position);
                 if (currentPost.getUserProfileImg() != null) {
                     Log.e(TAG, "two of the same images.");
                 } else {
+                    Log.v(TAG, "Image loaded.");
                     currentPost.setUserProfileImg(image);
-                    OpenInstagramHomeActivity.listOfPostings.set(position, currentPost);
+                    OpenInstagramSinglePostActivity.singleListOfExplore.set(position, currentPost);
                     //InstaTestSplashActivity.profileImagesLoaded++;
                 }
             } catch (Exception e) {

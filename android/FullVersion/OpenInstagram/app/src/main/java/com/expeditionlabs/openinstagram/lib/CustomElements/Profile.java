@@ -1,4 +1,4 @@
-package com.expeditionlabs.openinstagram.CustomElements;
+package com.expeditionlabs.openinstagram.lib.CustomElements;
 
 import java.util.ArrayList;
 

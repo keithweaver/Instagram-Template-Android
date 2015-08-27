@@ -1,4 +1,4 @@
-package com.expeditionlabs.openinstagram.db.home;
+package com.expeditionlabs.openinstagram.db.singlePost;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,8 +7,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramSinglePostActivity;
 import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
-import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramHomeActivity;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -16,19 +16,18 @@ import java.net.URL;
 /**
  * Created by Keith on 2015-07-30.
  */
-public class LoadExternalProfileImgsServerActivity extends AsyncTask<String, String, Bitmap> {
-    public static String TAG = "WEAVER_LoadExternalProfileImgsServerActivity_";
+public class LoadExternalImgForSinglePostServerActivity extends AsyncTask<String, String, Bitmap> {
+    public static String TAG = "OpenInstagram_LoadExternalImgForSinglePostServerActivity_";
 
     Context mContext;
     Bitmap bitmap;
 
     int position;
 
-    public LoadExternalProfileImgsServerActivity(Context c) {
+    public LoadExternalImgForSinglePostServerActivity(Context c) {
         super.onPreExecute();
         mContext = c;
     }
-
     protected Bitmap doInBackground(String... args) {
         String link = args[0];
         Log.v(TAG, "Link:[" + link + "]");
@@ -45,27 +44,28 @@ public class LoadExternalProfileImgsServerActivity extends AsyncTask<String, Str
 
     protected void onPostExecute(Bitmap image) {
 
-        if (image != null) {
+        if(image != null){
             //UserPost newPost = new UserPost("Title","about",image,"123");
             //if(newPost.getImg()==null){
             //    Log.v(TAG, "Bitmap is null");
             //}
             //InstaTestMainActivity.mainList.add(newPost);
-            try {
-                Post currentPost = OpenInstagramHomeActivity.listOfPostings.get(position);
-                if (currentPost.getUserProfileImg() != null) {
+            try{
+                Post currentPost = OpenInstagramSinglePostActivity.singleListOfExplore.get(position);
+                if(currentPost.getImg() != null){
                     Log.e(TAG, "two of the same images.");
-                } else {
-                    currentPost.setUserProfileImg(image);
-                    OpenInstagramHomeActivity.listOfPostings.set(position, currentPost);
-                    //InstaTestSplashActivity.profileImagesLoaded++;
+                }else{
+                    Log.v(TAG, "Image loaded.");
+                    currentPost.setImg(image);
+                    OpenInstagramSinglePostActivity.singleListOfExplore.set(position, currentPost);
+                    //InstaTestSplashActivity.imagesLoaded++;
                 }
-            } catch (Exception e) {
+            }catch (Exception e){
                 Log.e(TAG, "Error setting image");
                 Log.e(TAG, e.toString());
             }
-            //Toast.makeText(mContext, "Loaded", Toast.LENGTH_SHORT).show();
-        } else {
+            Toast.makeText(mContext, "Loaded", Toast.LENGTH_SHORT).show();
+        }else{
 
             //pDialog.dismiss();
             Toast.makeText(mContext, "Image Does Not exist or Network Error", Toast.LENGTH_SHORT).show();

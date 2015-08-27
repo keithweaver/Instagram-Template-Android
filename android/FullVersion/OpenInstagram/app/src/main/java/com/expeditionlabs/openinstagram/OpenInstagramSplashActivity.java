@@ -8,6 +8,9 @@ import android.view.Window;
 
 import com.expeditionlabs.openinstagram.Windows.LogIn.OpenInstagramLogInActivity;
 import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramHomeActivity;
+import com.expeditionlabs.openinstagram.db.explore.LoadSuggestedPostsServerActivity;
+
+import java.util.ArrayList;
 
 
 public class OpenInstagramSplashActivity extends Activity {
@@ -27,6 +30,12 @@ public class OpenInstagramSplashActivity extends Activity {
         String tempUser = loginSharedPreferences.getString("USERNAME","");
         if(tempUser.length() > 0){
             OpenInstagramHomeActivity.username = tempUser;
+
+            OpenInstagramHomeActivity.listOfExploring = new ArrayList<>();
+
+            new LoadSuggestedPostsServerActivity(this).execute(tempUser);
+
+
             Intent openLogInWindow = new Intent(this, OpenInstagramHomeActivity.class);
             startActivity(openLogInWindow);
         }else{

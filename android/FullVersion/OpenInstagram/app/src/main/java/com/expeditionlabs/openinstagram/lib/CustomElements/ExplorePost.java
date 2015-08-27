@@ -1,4 +1,4 @@
-package com.expeditionlabs.openinstagram.CustomElements;
+package com.expeditionlabs.openinstagram.lib.CustomElements;
 
 import android.graphics.Bitmap;
 
@@ -69,5 +69,23 @@ public class ExplorePost {
     }
     public void setImg3(Bitmap b){
         this.img3 = b;
+    }
+    public void setImgLink1(String l){
+        this.imgLink1 = l;
+    }
+    public void setImgLink2(String l){
+        this.imgLink2 = l;
+    }
+    public void setImgLink3(String l){
+        this.imgLink3 = l;
+    }
+    public void setPostCode1(String c){
+        this.postCode1 = c;
+    }
+    public void setPostCode2(String c){
+        this.postCode2 = c;
+    }
+    public void setPostCode3(String c){
+        this.postCode3 = c;
     }
 }

@@ -1,8 +1,7 @@
-package com.expeditionlabs.openinstagram.CustomAdapters;
+package com.expeditionlabs.openinstagram.lib.CustomAdapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.expeditionlabs.openinstagram.CustomElements.Post;
+import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
 import com.expeditionlabs.openinstagram.R;
 
 import java.util.ArrayList;

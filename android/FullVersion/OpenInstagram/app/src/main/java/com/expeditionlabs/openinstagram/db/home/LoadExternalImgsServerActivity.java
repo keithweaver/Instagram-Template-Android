@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.expeditionlabs.openinstagram.CustomElements.Post;
+import com.expeditionlabs.openinstagram.lib.CustomElements.Post;
 import com.expeditionlabs.openinstagram.Windows.main.OpenInstagramHomeActivity;
 
 import java.io.InputStream;
