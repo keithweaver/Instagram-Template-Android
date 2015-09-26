@@ -1,5 +1,6 @@
 # Instagram-Template
 
+Still in development. I dont recommend using this code.
 
 ### Prototype
 The prototype is a custom adapter that loads multiple images off the server. 
