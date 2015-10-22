@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/imageView7"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gradient"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/imageView8"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/instagramlogo"
+        android:padding="20dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView7"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:background="#f5f5f5">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="left"
+                android:layout_marginRight="1dp"
+                android:gravity="center"
+                android:id="@+id/signUpLayoutBtn">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Sign Up"
+                    android:id="@+id/textView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:layout_gravity="right"
+                android:layout_marginLeft="1dp"
+                android:gravity="center"
+                android:id="@+id/logInLayoutBtn">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Log In"
+                    android:id="@+id/textView2" />
+            </TableRow>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/signUpLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sign Up"
+                android:id="@+id/textView3"
+                android:layout_marginBottom="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/signUpEmailEdittext"
+                android:background="#ffffff"
+                android:textSize="16dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="Email" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/signUpUsernameEdittext"
+                android:background="#ffffff"
+                android:textSize="16dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="User Name"
+                android:inputType="text"
+                android:layout_marginTop="7dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/signUpPasswordEdittext"
+                android:background="#ffffff"
+                android:textSize="16dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="Password"
+                android:inputType="textPassword|text"
+                android:layout_marginTop="7dp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:id="@+id/signUpBtn"
+                android:layout_marginTop="10dp"
+                android:background="#ccf2ff" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/signUpProcessWrapper"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar" />
+            </TableRow>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/logInLayout" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Log In"
+                android:id="@+id/textView4"
+                android:layout_marginBottom="15dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/logInEmailEdittext"
+                android:background="#ffffff"
+                android:textSize="16dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="User Name"
+                android:inputType="text"
+                android:layout_marginTop="7dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/logInPasswordEdittext"
+                android:background="#ffffff"
+                android:textSize="16dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:hint="Password"
+                android:inputType="textPassword|text"
+                android:layout_marginTop="7dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Forgot Password?"
+                android:id="@+id/textView5"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Log In"
+                android:id="@+id/logInBtn"
+                android:layout_marginTop="10dp"
+                android:background="#ccf2ff" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/logInProcessWrapper"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar3" />
+
+            </TableRow>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/C:/Users/Keith/Desktop/my.github/Instagram-Template-Android/android/FullVersion/OpenInstagram/app/src/main/res/layout/activity_oi_login.xml -->
