@@ -1,26 +1,34 @@
-package com.weaverprojects.openinstagram.View;
+package com.weaverprojects.openinstagram.View.PostLogIn;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.weaverprojects.openinstagram.R;
-import com.weaverprojects.openinstagram.View.PreLogIn.LogInActivity;
 
-
-public class SplashActivity extends Activity {
-
+/**
+ * Created by Keith on 2015-10-25.
+ */
+public class HomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        Intent open = new Intent(this, LogInActivity.class);
-        startActivity(open);
+        setContentView(R.layout.activity_home);
     }
-
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
