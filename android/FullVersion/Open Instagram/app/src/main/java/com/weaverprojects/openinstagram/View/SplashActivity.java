@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.weaverprojects.openinstagram.R;
+import com.weaverprojects.openinstagram.View.PostLogIn.HomeActivity;
 import com.weaverprojects.openinstagram.View.PreLogIn.LogInActivity;
 
 
@@ -17,7 +18,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent open = new Intent(this, LogInActivity.class);
+        Intent open = new Intent(this, HomeActivity.class);
         startActivity(open);
     }
 
