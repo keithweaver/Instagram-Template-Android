@@ -2,6 +2,8 @@ package com.weaverprojects.openinstagram.Controller.Temp;
 
 import com.weaverprojects.openinstagram.Model.Comment;
 import com.weaverprojects.openinstagram.Model.Post;
+import com.weaverprojects.openinstagram.Model.PostBasics;
+import com.weaverprojects.openinstagram.Model.UsersProfile;
 
 import java.util.ArrayList;
 
@@ -29,5 +31,21 @@ public class Fake {
 
 
         return posts;
+    }
+    public static String getTestProfileImage(){
+        return "https://scontent-yyz1-1.cdninstagram.com/hphotos-xfa1/t51.2885-19/10616436_505564372908202_2136544002_a.jpg";
+    }
+    public static UsersProfile getUserProfile(){
+        return new UsersProfile("u1",getTestProfileImage(),"kweaver0","Keith Weaver","builds things",123,456,getFakeBasicPosts());
+    }
+    public static ArrayList<PostBasics> getFakeBasicPosts(){
+        ArrayList<PostBasics> b = new ArrayList<>();
+
+        ArrayList<Post> fullPosts = getFakePosts();
+        for(Post p : fullPosts){
+            b.add(new PostBasics(p.getPostId(), p.getImgUrl()));
+        }
+
+        return b;
     }
 }

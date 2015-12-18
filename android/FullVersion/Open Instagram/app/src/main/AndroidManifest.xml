@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".View.PreLogIn.LogInActivity"></activity>
         <activity android:name=".View.PostLogIn.HomeActivity"></activity>
+        <activity android:name=".View.PostLogIn.ProfileActivity"></activity>
     </application>
 
 </manifest>

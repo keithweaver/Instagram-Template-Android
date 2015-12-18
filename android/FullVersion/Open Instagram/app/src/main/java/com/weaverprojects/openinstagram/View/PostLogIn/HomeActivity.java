@@ -1,12 +1,15 @@
 package com.weaverprojects.openinstagram.View.PostLogIn;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
+import android.widget.TableRow;
 
 import com.weaverprojects.openinstagram.Controller.Temp.Fake;
 import com.weaverprojects.openinstagram.Model.Post;
@@ -26,6 +29,7 @@ public class HomeActivity extends Activity {
 
     //UI
     ListView mainListView;
+    TableRow profileBtn;
 
 
     @Override
@@ -33,11 +37,13 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         declareUIObjects();
-        mainListView = (ListView) findViewById(R.id.mainListView);
+
         mPosts = new ArrayList<>();
         mPosts = Fake.getFakePosts();
         mHomeArrayAdapter = new HomeArrayAdapter(this, R.layout.row_home_item, mPosts);
         mainListView.setAdapter(mHomeArrayAdapter);
+
+        handleBottomMenuButtons();
     }
     @Override
     protected void onResume(){
@@ -66,14 +72,20 @@ public class HomeActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
 
         return super.onOptionsItemSelected(item);
     }
     protected void declareUIObjects(){
-
+        mainListView = (ListView) findViewById(R.id.mainListView);
+        profileBtn = (TableRow) findViewById(R.id.profileBtn);
+    }
+    protected void handleBottomMenuButtons(){
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openProfileWindow = new Intent(v.getContext(), ProfileActivity.class);
+                startActivity(openProfileWindow);
+            }
+        });
     }
 }
