@@ -1,7 +1,7 @@
 <?php
-	include_once('../include/conn.php');
-	include_once('../include/response_objects.php');
-	include_once('../include/common_functions.php');
+	include_once('../../include/conn.php');
+	include_once('../../include/response_objects.php');
+	include_once('../../include/common_functions.php');
 
 	$r = new resGeneral();
 
