@@ -8,22 +8,22 @@
 <br/>
 <br/>
 <p>
-	<a href="#" onclick="return createTables(false);">
+	<a href="#add" onclick="return createTables(false);">
 		Create Tables
 	</a>
 </p>
 <p>
-	<a href="#" onclick="return dropTables(false);">
+	<a href="#drop" onclick="return dropTables(false);">
 		Drop Tables
 	</a>
 </p>
 <p>
-	<a href="#" onclick="return addFakeData();">
+	<a href="#fake" onclick="return addFakeData();">
 		Add Fake Data
 	</a>
 </p>
 <p>
-	<a href="#" onclick="return doAll();">
+	<a href="#doall" onclick="return doAll();">
 		Do all actions (drop, create, add fake data)
 	</a>
 </p>
@@ -43,11 +43,12 @@ function dropTables(doNext){
 			updateStatus("Something went wrong with drop tables");
 		}else{
 			updateStatus("Dropped tables");
-			if(doNext){
-				createTables(doNext);
-			}
+		}
+		if(doNext){
+			createTables(doNext);
 		}
 	});
+	return false;
 }
 function createTables(doNext){
 	var formData = {};
@@ -67,6 +68,7 @@ function createTables(doNext){
 			}
 		}
 	});
+	return false;
 }
 function addFakeData(){
 	var formData = {};
@@ -84,9 +86,11 @@ function addFakeData(){
 		}
 		
 	});
+	return false;
 }
 function doAll(){
 	dropTables(true);
+	return false;
 }
 function updateStatus(msg){
 	$("#status-text").html(msg);
