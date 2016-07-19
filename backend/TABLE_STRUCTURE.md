@@ -6,6 +6,11 @@ email
 verified
 encryptedPassword
 hash
+first
+last
+profileImg
+bio
+website
 isPrivate
 createdDateTime
 ```
@@ -60,5 +65,13 @@ id
 postId
 comment
 byId
+datetime_tab
+```
+
+following
+```
+id
+userId
+isFollowing
 datetime_tab
 ```

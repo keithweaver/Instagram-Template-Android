@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Open Instagram</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
+
+</resources>
