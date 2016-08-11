@@ -39,6 +39,7 @@ function dropTables(doNext){
 		dataType    : 'json',
 		encode      : true
 	}).done(function(data) {
+		console.log(data);
 		if(!data.success){
 			updateStatus("Something went wrong with drop tables");
 		}else{
@@ -59,6 +60,7 @@ function createTables(doNext){
 		dataType    : 'json',
 		encode      : true
 	}).done(function(data) {
+		console.log(data);
 		if(!data.success){
 			updateStatus("Something went wrong with create tables");
 		}else{
@@ -79,6 +81,7 @@ function addFakeData(){
 		dataType    : 'json',
 		encode      : true
 	}).done(function(data) {
+		console.log(data);
 		if(!data.success){
 			updateStatus("Something went wrong with adding fake data");
 		}else{
