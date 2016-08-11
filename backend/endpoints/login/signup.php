@@ -1,16 +1,18 @@
 <?php
-	function error($msg){
-		$r->success = 0;
-		$r->message = $msg;
-		return json_encode($r);
-	}
 	include_once('../../include/conn.php');
 	include_once('../../include/response_objects.php');
 	include_once('../../include/common_functions.php');
 	include_once('../../include/login_functions.php');//has to be second
 	//there are functions from common functions being used in login_functions
+	date_default_timezone_set("US/Eastern");
 	
 	$r = new resGeneral();
+
+	function error($msg){
+		$r->success = 0;
+		$r->message = $msg;
+		return json_encode($r);
+	}
 
 	$apikey = pickup('apikey');
 	$email = pickup('email');

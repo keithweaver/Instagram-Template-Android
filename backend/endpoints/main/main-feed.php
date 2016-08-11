@@ -1,18 +1,20 @@
 <?php
-	function error($msg){
-		$r->success = 0;
-		$r->message = $msg;
-		return json_encode($r);
-	}
 	include_once('../../include/conn.php');
 	include_once('../../include/response_objects.php');
 	include_once('../../include/common_functions.php');
 
 	$r = new resPosts();
 
+	function error($msg){
+		$r->success = 0;
+		$r->message = $msg;
+		return json_encode($r);
+	}
+
 	$apikey = pickup('apikey');
 	$token = pickup('token');
 	$username = pickup('username');
+	$starting = pickup('starting');
 	
 	if($apikey != $REST_API_KEY){
 		$r->success = 0;
