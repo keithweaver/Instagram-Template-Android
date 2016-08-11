@@ -48,10 +48,10 @@
 				$logInToken = generateLogInToken();
 
 				$datetime = date('Y-m-d H:i:s');
-				mysqli_query($con, "INSERT INTO loginTokens (userId, token, datetime_tab) VALUES ('$userId','$token','$datetime')") or die(error("Error: Saving login info."));
+				mysqli_query($con, "INSERT INTO loginTokens (userId, token, datetime_tab) VALUES ('$userId','$logInToken','$datetime')") or die(error("Error: Saving login info."));
 
 				$r->success = 1;
-				$r->message = $loginTokens;
+				$r->message = $logInToken;
 
 			}else{
 				//invalid

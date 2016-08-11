@@ -42,7 +42,7 @@
 			$result_check_token = mysqli_query($con, "SELECT * FROM loginTokens WHERE userId='$userId' AND token='$token' AND invalid='0'") or die(error("Error: Loading users login info."));
 			if(mysqli_num_rows($result_check_token) > 0){
 				$r->success = 1;
-				$r->message = "Error: Token cannot be blank.";
+				$r->message = "Valid token";
 			}else{
 				$r->success = 0;
 				$r->message = "Error: Invalid log in. Please log in again.";
