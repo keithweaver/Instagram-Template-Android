@@ -25,7 +25,7 @@
 		$result = mysqli_query($con, "SELECT * FROM users WHERE username='$username'") or die(error("Error: Loading usernames"));
 		if(mysqli_num_rows($result) == 0){
 			$r->success = 1;
-			$r->message = "Success! User name updated.";
+			$r->message = "User name is available.";
 		}else{
 			$r->success = 0;
 			$r->message = "Error: User name taken.";

@@ -42,7 +42,10 @@ Success Response
 ```
 {
 	"success":1,
-	"message":"bbsmbdsfbgkmsiobfqjpplfeklaionmpomip"
+	"message":"bbsmbdsfbgkmsiobfqjpplfeklaionmpomip",
+	"usernames":[
+				"exampleUserName"
+				]
 }
 ```
 
@@ -157,6 +160,41 @@ Error Responses
 }
 ```
 
+
+#### Check Taken User Name
+`POST`
+`/endpoints/login/check-taken-username`
+
+Parameters:
+
+`apikey` - The API Key you've selected
+
+`username` - The user name
+
+
+Responses:
+
+Success Response
+```
+{
+	"success":1,
+	"message":"User name is available."
+}
+```
+
+Error Responses
+```
+{
+	"success":0,
+	"message":"Error: User name taken."
+}
+```
+```
+{
+	"success":0,
+	"message":"Error: Cannot find users."
+}
+```
 
 
 

@@ -5,7 +5,7 @@
 	include_once('../../include/login_functions.php');//this has to be after common_functions
 	date_default_timezone_set("US/Eastern");
 	
-	$r = new resGeneral();
+	$r = new resLogIn();
 
 	function error($msg){
 		$r->success = 0;
@@ -35,10 +35,12 @@
 			$encryptedPassword = "";
 			$hash = "";
 			$userId = -1;
+			$userName = "";
 			while($row = mysqli_fetch_array($result)){
 				$hash = $row['hash'];
 				$encryptedPassword = $row['encryptedPassword'];
 				$userId = $row['id'];
+				$userName = $row['username'];
 			}
 
 			$encryptedPasswordFromInput = crypt($password, $hash);
@@ -52,7 +54,7 @@
 
 				$r->success = 1;
 				$r->message = $logInToken;
-
+				$r->usernames = array($userName);
 			}else{
 				//invalid
 				$r->success = 0;

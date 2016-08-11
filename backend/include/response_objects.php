@@ -3,6 +3,11 @@
 		public $success = 0;
 		public $message = "";
 	}
+	class resLogIn{
+		public $success = 0;
+		public $message = "";
+		public $usernames = array();
+	}
 	class resPosts{
 		public $success = 0;
 		public $message = "";

@@ -3,11 +3,126 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sign up"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/errorLabelWrapper" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Error: Invalid email. Email must be at least 3 characters long."
+            android:id="@+id/errorLabel"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="#ffffff"
+            android:background="#940101"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#d2d2d2"
+                android:padding="1dp" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/emailEditText"
+                    android:background="#ffffff"
+                    android:hint="Email"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#d2d2d2"
+                android:padding="1dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:id="@+id/userNameEditText"
+                    android:background="#ffffff"
+                    android:hint="User name"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#d2d2d2"
+                android:padding="1dp"
+                android:layout_marginTop="10dp" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:id="@+id/passwordEditText"
+                    android:background="#ffffff"
+                    android:hint="Password"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="7dp"
+                android:paddingBottom="15dp" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:id="@+id/signUpBtn" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/signUpProgressBar" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
